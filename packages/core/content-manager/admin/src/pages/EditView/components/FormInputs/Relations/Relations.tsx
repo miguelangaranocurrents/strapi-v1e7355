@@ -752,6 +752,9 @@ const RelationModalWithContext = ({
 
   React.useLayoutEffect(() => {
     setTextValue('');
+    setSearchParams((prev) =>
+      prev._q === '' && prev.page === 1 ? prev : { ...prev, _q: '', page: 1 }
+    );
   }, [fieldValue]);
 
   const handleSearch = async (search: string) => {
